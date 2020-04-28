@@ -1,0 +1,16 @@
+This file is for an eventual auditor.
+
+Based on OpenZeppelin ERC721 https://github.com/OpenZeppelin/openzeppelin-contracts/tree/master/contracts/token/ERC721 commit ad290e718118cfed3574582797cc5b11a05e6e38
+
+Changes to ERC721.sol
+  - removed support of GNS
+  - removed metadata (name, symbol, token URI)
+  - changed paths to includes 
+  
+Changes to AccessControl.sol
+  - removed support of GNS
+  - changed paths to includes
+  
+Some other files
+  - changed paths to includes
+  
