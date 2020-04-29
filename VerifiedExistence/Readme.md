@@ -2,16 +2,16 @@
 
 ## Intro
 This smart contract is meant to:
-- Create proofs of the existence of a Hash (representing some document or text), thus verify their existence
--- Owner (and whitelisted others) can create new proofs
--- Contract creates proofs as NFT/ERC721, which can be provided to recipients
--- Data updates can be done by writing new hash+data being written on the same DocID
-- Roles:
--- default_admin: contract deployer, can be transferred; is allowed to grant/revoke all roles (admins+whitelists)
--- proof_whitelisted: add/delete proofs
--- confirm_whitelisted: add/delete confirmations of proofs
-- Note:
--- Recipient wallets need to be able to handle ER721. For safety reasons, it is not possible to send a token to a contract that does not explicitly support it.
+##### Create proofs of the existence of a Hash (representing some document or text), thus verify their existence
+- Owner (and whitelisted others) can create new proofs
+- Contract creates proofs as NFT/ERC721, which can be provided to recipients
+- Data updates can be done by writing new hash+data being written on the same DocID
+##### Roles:
+- default_admin: contract deployer, can be transferred; is allowed to grant/revoke all roles (admins+whitelists)
+- proof_whitelisted: add/delete proofs
+- confirm_whitelisted: add/delete confirmations of proofs
+##### Note:
+- Recipient wallets need to be able to handle ER721. For safety reasons, it is not possible to send a token to a contract that does not explicitly support it.
     
 
   
