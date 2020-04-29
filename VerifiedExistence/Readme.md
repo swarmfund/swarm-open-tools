@@ -7,9 +7,9 @@ This smart contract is meant to:
 - Contract creates proofs as NFT/ERC721, which can be provided to recipients
 - Data updates can be done by writing new hash+data being written on the same DocID
 ##### Roles:
-- default_admin: contract deployer, can be transferred; is allowed to grant/revoke all roles (admins+whitelists)
-- proof_whitelisted: add/delete proofs
-- confirm_whitelisted: add/delete confirmations of proofs
+- ``default_admin``: contract deployer, can be transferred; is allowed to grant/revoke all roles (admins+whitelists)
+- ``proof_whitelisted``: add/delete proofs
+- ``confirm_whitelisted``: add/delete confirmations of proofs
 ##### Note:
 - Recipient wallets need to be able to handle ER721. For safety reasons, it is not possible to send a token to a contract that does not explicitly support it.
     
@@ -19,7 +19,7 @@ This smart contract is meant to:
 ## Notable Functions
 ###   Proof specific:
 ##### Write:
-- addProof - write proofHash (0x{hash}; hash of a document, file, string, etc.), string (any description of the hash; length only affects gas), address (where the NFT/ERC721 is being sent to; contract returns id (tokenId); Fails if hash already exists; Requires being whitelisted; creates an ERC721 and a custom event
+- addProof - write proofHash (0x{hash}); hash of a document, file, string, etc.), string (any description of the hash; length only affects gas), address (where the NFT/ERC721 is being sent to); contract returns id (tokenId); Fails if hash already exists; Requires being whitelisted; creates an ERC721 and a custom event
 - deleteProof - write tokenId, deletes proof/token
 - addConfirmation - write tokenId add confirmation of the data; requires being whitelisted; creates an event
 ##### Read:
@@ -44,9 +44,12 @@ Three roles exist:
 - Confirm_Whitelisted - can create Confirmations against Proofs
 ##### Write:
 - grantRole - (hash of role, address) to grant certain role to certain address; hashes of the roles are const in the contract::
-> ``Default_Admin_Role`` with 0x0000000000000000000000000000000000000000000000000000000000000000
-> ``Proof_Whitelisted`` with 0xf555e1ec80c58c7664dc73d872d3ef6e07bdd9c5ba6b3bf7a91ffaa413b8dac5
-> ``Confirm_Whitelisted`` with 0x53eebd7fe83ace838d6b0a9d4f111237deb02359c62b25f1025613d537b2379b
+> ``Default_Admin_Role`` with ``0x0000000000000000000000000000000000000000000000000000000000000000``
+
+> ``Proof_Whitelisted`` with ``0xf555e1ec80c58c7664dc73d872d3ef6e07bdd9c5ba6b3bf7a91ffaa413b8dac5``
+
+> ``Confirm_Whitelisted`` with ``0x53eebd7fe83ace838d6b0a9d4f111237deb02359c62b25f1025613d537b2379b``
+
 -----
 - revokeRole - same as grantRole only reverse
 
@@ -54,15 +57,15 @@ Three roles exist:
 ### Core initial use case
 The Swarm Council can publish protocols of decisions taken on GitHub and verify the Hash via VerifiedExistence:
 - Dedicated contract for VerifiedExistence for Swarm Network
-- Contract owner and proof_whitelisted is multisig with council members
+- Contract owner and ``proof_whitelisted`` is multisig with council members
 - Council published documents / minutes, with hashes ([example here](https://raw.githubusercontent.com/swarmfund/swarm-network-governance/master/SCVs/SCV_1587031154_Decision%20regarding_April_Voting_Period.md))
 - Create Proof (Hash + meta data) and proof NFT / ERC721 is sent to dedicated wallet (e.g. Gnosis Safe, which allows ERC721 to be kept as “Collectibles”)
 
 ### Other potential use cases:
 ##### Proof of Masternode
-- Smart contract, which tracks verified Masternodes, could be added to proof_whitelisted of a contract put in place by council
+- Smart contract, which tracks verified Masternodes, could be added to ``proof_whitelisted`` of a contract put in place by council
 - A smart contract / person / process could keep track of active masternodes and create/delete corresponding Proofs and send Proof NFTs to masternode wallets
 - Masternode distributions could be using NFTs held as basis for reward distribution
 - Masternodes could be confirming various actions of the Council contract
-##### Masternodes could be added as Confirm_Whitelisted
+##### Masternodes could be added as ``confirm_whitelisted``
 - Can then add supporting votes (confirmations) to certain actions
