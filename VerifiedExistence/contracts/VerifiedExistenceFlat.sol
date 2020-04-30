@@ -1608,6 +1608,17 @@ contract VerifiedExistence is ERC721, AccessControl {
         // make the contarct deployer the admin of all user access.
         _setupRole(DEFAULT_ADMIN_ROLE, msg.sender);
     }
+    
+    /**
+     * @dev Batch role assignment
+     * @param role bytes32 The role to grant
+     * @param accounts address[] array of recipients of the role
+     */
+    function batchGrantRole(bytes32 role, address[] memory accounts) public {
+        // right checks are done in the grantRole of AccessControl
+        for (uint256 i = 0; i < accounts.length; i++)
+            grantRole(role, accounts[i]);
+    }    
 
     /**
      * @dev Mints a new token and adds provided metadata

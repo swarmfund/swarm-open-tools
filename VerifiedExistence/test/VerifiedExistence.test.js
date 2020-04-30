@@ -29,7 +29,21 @@ describe('VerifiedExistence', function () {
     expect(await this.contract.PROOF_WHITELISTED()).to.equal(proofRole);
     expect(await this.contract.CONFIRM_WHITELISTED()).to.equal(confirmRole);
   });
+
   
+  it('Batch role granting', async function () {
+    await expectRevert(
+      this.contract.batchGrantRole(proofRole, [owner, other], { from: other }),
+      "AccessControl: sender must be an admin to grant."
+    );
+
+    assert.isNotOk(await this.contract.hasRole(proofRole, owner));
+    assert.isNotOk(await this.contract.hasRole(proofRole, other));
+    this.contract.batchGrantRole(proofRole, [owner, other], { from: owner });    
+    assert.isOk(await this.contract.hasRole(proofRole, owner));
+    assert.isOk(await this.contract.hasRole(proofRole, other));
+  });  
+
   
   it('Only owner can whitelist', async function () {
     await expectRevert(
