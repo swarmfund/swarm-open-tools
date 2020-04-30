@@ -43,7 +43,7 @@ Three roles exist:
 - Proof_Whitelisted - can create/delete Proofs; admins are automatically whitelisted, so that needs to be added if desired
 - Confirm_Whitelisted - can create Confirmations against Proofs
 ##### Write:
-- grantRole - (hash of role, address) to grant certain role to certain address; hashes of the roles are const in the contract::
+- grantRole - (hash of role, addresses ["0x...", "0x..."])) to grant certain role to certain address; hashes of the roles are const in the contract::
 > ``Default_Admin_Role`` with ``0x0000000000000000000000000000000000000000000000000000000000000000``
 
 > ``Proof_Whitelisted`` with ``0xf555e1ec80c58c7664dc73d872d3ef6e07bdd9c5ba6b3bf7a91ffaa413b8dac5``
