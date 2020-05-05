@@ -51,6 +51,7 @@ Three roles exist:
 > ``Confirm_Whitelisted`` with ``0x53eebd7fe83ace838d6b0a9d4f111237deb02359c62b25f1025613d537b2379b``
 
 -----
+- batchGrantRole - (hash of role, addresses [0x..., 0x...])) to grant certain role to multiple address
 - revokeRole - same as grantRole only reverse
 
 ## Swarm - Example Use Cases
