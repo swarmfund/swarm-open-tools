@@ -42,8 +42,8 @@ This smart contract is meant to:
 | `balanceOf()` | number of tokens the `address` owns |
 | `ownerOf()` | get the `address` who owns a `tokenId` |
 | `safeTransferFrom()` | transfer Proofs `address from`, `address to`, `tokenId` |
-| `tokenOfOwnerByIndex()` | `address owner`, `index (uint256)` // index is a 1..n numbering of proofes owned by the address. Use this to get all `proofs` owned by an address, in combination with `balanceOf` to get the count |
-| `totalSupply()` | get the current supply of `proofs` in existence; burt/deleted not included |
+| `tokenOfOwnerByIndex()` | `address owner`, `index (uint256)` // index is a 1..n numbering of proofs owned by the address. Use this to get all `proofs` owned by an address, in combination with `balanceOf` to get the count |
+| `totalSupply()` | get the current supply of `proofs` in existence; burnt/deleted not included |
 
 **Write Functions**
 
