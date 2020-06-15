@@ -3,7 +3,7 @@
 ## Intro
 This smart contract is meant to:
 ##### Create proofs of the existence of a Hash (representing some document or text), thus verify their existence
-- Owner (and whitelisted others) can create new `proofs`
+- Owner (and whitelisted others) can create new `proofs`, like verified time-based document watermarks on the blockchain
 - Contract creates `proofs` as NFT/ERC721, which can be sent to a recipient address
 - Whitelisted others can add confirmations for `proofs`
 ##### Roles:
