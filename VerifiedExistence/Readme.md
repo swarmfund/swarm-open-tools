@@ -62,16 +62,20 @@ This smart contract is meant to:
 ## Swarm - Example Use Cases
 ### Core initial use case
 The Swarm Council can publish protocols of decisions taken on GitHub and verify the Hash via VerifiedExistence:
-- Dedicated contract for `VerifiedExistence` for Swarm Network
-- Contract owner and `proof_whitelisted` is multisig with council members
-- Council published documents / minutes, with hashes ([example here](https://raw.githubusercontent.com/swarmfund/swarm-network-governance/master/SCVs/SCV_1587031154_Decision%20regarding_April_Voting_Period.md))
-- Create Proof (Hash + meta data) and proof NFT / ERC721 is sent to dedicated wallet (e.g. Gnosis Safe, which allows ERC721 to be kept as “Collectibles”)
+* [Dedicated contract](https://etherscan.io/address/0xdc95ed11e88d44f4e6ece3c959034646e7917b15#code) for `VerifiedExistence` for Swarm Network
+* Contract owner and `proof_whitelisted` is multisig with council members (tbd)
+* Council published documents with hashes;
+* Create Proof (Hash + meta data) and proof NFT / ERC721 is sent to dedicated wallet (e.g. Gnosis Safe, which allows ERC721 to be kept as “Collectibles”)
+* Example: Swarm Council Votes (SCVs)
+    * listed in this [repo](https://github.com/swarmfund/swarm-network-governance/tree/master/SCVs); text between <hash-start> and  </hash-end> tags is hashed
+    * create `proofs` using hash and title; send it to a Swarm Council wallet; e.g [`proof (SCV_1587031154_Decision regarding_April_Voting_Period.md)`](https://etherscan.io/tx/0xf9363a3dc08a1927cdbe5e90c83c96bfd80012296bdad6821193a15a4f08460e) 
+
 
 ### Other potential use cases:
 ##### Proof of Masternode
-- Smart contract, which tracks verified Masternodes, could be added to `proof_whitelisted` of a contract put in place by council
-- A smart contract / person / process could keep track of active masternodes and create/delete corresponding `proofs` and send `proof` NFTs to masternode wallets
-- Masternode distributions could be using NFTs held as basis for reward distribution
-- Masternodes could be confirming various actions of the Council contract
+* Smart contract, which tracks verified Masternodes, could be added to `proof_whitelisted` of a contract put in place by council
+* A smart contract / person / process could keep track of active masternodes and create/delete corresponding `proofs` and send `proof` NFTs to masternode wallets
+* Masternode distributions could be using NFTs held as basis for reward distribution
+* Masternodes could be confirming various actions of the Council contract
 ##### Masternodes could be added as `confirm_whitelisted`
-- Can then add supporting votes (confirmations) to certain actions
+* Can then add supporting votes (confirmations) to certain actions
